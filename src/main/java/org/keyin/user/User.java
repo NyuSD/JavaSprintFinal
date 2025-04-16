@@ -23,7 +23,6 @@ public class User {
         this.role = role;
     }
 
-    // Getters and setters
     public int getUserId() { return userId; }
     public void setUserId(int userId) { this.userId = userId; }
 
