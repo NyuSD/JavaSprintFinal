@@ -18,7 +18,7 @@ Passwords are stored securely with **BCrypt**.
 
 ---
 
-<a name="how-it-works"></a>1  How the application works
+## <a name="how-it-works"></a>1  How the application works
 
 
 * **UserService** hashes plaintext passwords with BCrypt, saves via **UserDao**.
@@ -30,7 +30,7 @@ Passwords are stored securely with **BCrypt**.
 
 ---
 
-## <a name="classes"></a>2  Main classes & interactions
+## <a name="classes"></a>2  Main classes & interactions
 
 | Layer | Classes | Key responsibility |
 |-------|---------|--------------------|
@@ -41,13 +41,13 @@ Passwords are stored securely with **BCrypt**.
 
 ---
 
-## <a name="structure"></a>3  Project directory layout
+## <a name="structure"></a>3  Project directory layout
 
 * Add later
 
 ---
 
-## <a name="build"></a>4  Build process & dependencies
+## <a name="build"></a>4  Build process & dependencies
 
 * **Maven 3.9+** (`pom.xml`)
   * `postgresql`
@@ -62,7 +62,7 @@ mvn clean package      # compiles & unit‑tests
 mvn javadoc:javadoc    # optional API docs
 ```
 
-## <a name="database"></a>5  Database setup (development)
+## <a name="database"></a>5  Database setup (development)
 
 ```bash
 CREATE DATABASE your_gym_db;
@@ -97,18 +97,20 @@ CREATE TABLE workoutclasses (
 
 Update DatabaseConnection.java with your DB name / user / password.
 
-## <a name="run"></a>6  Running the program
+## <a name="run"></a>6  Running the program
 
-# 1) Make sure PostgreSQL is running and tables exist
-# 2) Compile & run via Maven "mvn exec:java"
+1) Make sure PostgreSQL is running and tables exist
+2) Compile & run via Maven "mvn exec:java"
 
-## <a name="clone"></a>7  Cloning & trying it yourself
+## <a name="clone"></a>7  Cloning & trying it yourself
 
+```bash
 git clone https://github.com/NyuSD/JavaSprintFinal
 cd JavaSprintFinal
+```
 
-# edit src/main/java/org/keyin/database/DatabaseConnection.java
-#  → put your PostgreSQL URL / user / password
+edit src/main/java/org/keyin/database/DatabaseConnection.java
+put your PostgreSQL URL / user / password
 
 psql -U postgres          # run the SQL schema above
 
