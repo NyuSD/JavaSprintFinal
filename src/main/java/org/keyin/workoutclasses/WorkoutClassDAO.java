@@ -16,6 +16,12 @@ public class WorkoutClassDAO {
             stmt.setString(2, wc.getWorkoutClassDescription());
             stmt.setInt(3, wc.getTrainerId());
             stmt.executeUpdate();
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    int generatedId = rs.getInt(1);
+                    wc.setWorkoutClassId(generatedId);
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

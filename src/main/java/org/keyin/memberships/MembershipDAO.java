@@ -18,6 +18,13 @@ public class MembershipDAO {
             stmt.setInt(4, m.getMemberId());
 
             stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    int generatedId = rs.getInt(1);
+                    m.setMembershipId(generatedId);
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
