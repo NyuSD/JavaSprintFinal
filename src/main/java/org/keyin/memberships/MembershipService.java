@@ -2,9 +2,15 @@ package org.keyin.memberships;
 
 import java.util.List;
 
+/**
+ * Business logic for {@link MembershipDAO}
+ * Also provides convenience methods such as total‐revenue calculation
+ */
 public class MembershipService {
-    private MembershipDAO dao = new MembershipDAO();
 
+    private final MembershipDAO dao = new MembershipDAO();
+
+    /** Insert membership after optional validation */
     public void purchaseMembership(Membership m) {
         dao.createMembership(m);
     }
@@ -25,12 +31,11 @@ public class MembershipService {
         dao.deleteMembership(id);
     }
 
+    /** @return total revenue from <em>all</em> memberships in the DB. */
     public double getTotalRevenue() {
-        double total = 0.0;
-        List<Membership> all = dao.getAllMemberships();
-        for (Membership m : all) {
-            total += m.getMembershipCost();
-        }
-        return total;
+        return dao.getAllMemberships()
+                  .stream()
+                  .mapToDouble(Membership::getMembershipCost)
+                  .sum();
     }
 }
