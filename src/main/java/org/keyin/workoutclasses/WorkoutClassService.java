@@ -2,8 +2,12 @@ package org.keyin.workoutclasses;
 
 import java.util.List;
 
+/**
+ * High‑level operations for {@link WorkoutClass} entities.
+ */
 public class WorkoutClassService {
-    private WorkoutClassDAO dao = new WorkoutClassDAO();
+
+    private final WorkoutClassDAO dao = new WorkoutClassDAO();
 
     public void createWorkoutClass(WorkoutClass wc) {
         dao.createWorkoutClass(wc);

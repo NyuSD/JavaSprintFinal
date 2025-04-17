@@ -1,21 +1,26 @@
 package org.keyin.workoutclasses;
 
+/**
+ * Entity representing a scheduled workout / class run by a trainer.
+ * Maps to a row in <em>workoutclasses</em>.
+ */
 public class WorkoutClass {
-    private int workoutClassId;
-    private String workoutClassType;
+
+    private int    workoutClassId;         // PK
+    private String workoutClassType;       // "Yoga"
     private String workoutClassDescription;
-    private int trainerId;
+    private int    trainerId;              
 
-    public WorkoutClass() {}
+    public WorkoutClass() { }
 
-    public WorkoutClass(int workoutClassId, String workoutClassType,
-                        String workoutClassDescription, int trainerId) {
-        this.workoutClassId = workoutClassId;
-        this.workoutClassType = workoutClassType;
-        this.workoutClassDescription = workoutClassDescription;
-        this.trainerId = trainerId;
+    public WorkoutClass(int id, String type, String desc, int trainerId) {
+        this.workoutClassId         = id;
+        this.workoutClassType       = type;
+        this.workoutClassDescription= desc;
+        this.trainerId              = trainerId;
     }
 
+    // getters / setters
     public int getWorkoutClassId() {
         return workoutClassId;
     }
@@ -44,9 +49,7 @@ public class WorkoutClass {
 
     @Override
     public String toString() {
-        return "WorkoutClass [id=" + workoutClassId 
-             + ", type=" + workoutClassType 
-             + ", desc=" + workoutClassDescription 
-             + ", trainerId=" + trainerId + "]";
+        return "WorkoutClass[id=%d, type=%s, trainerId=%d]"
+                .formatted(workoutClassId, workoutClassType, trainerId);
     }
 }
